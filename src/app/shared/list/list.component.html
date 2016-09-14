@@ -2,7 +2,7 @@
   <logout-module></logout-module>
 </div>
 <div class="container">
-  <form class="form-inline" #addItem="ngForm" autocomplete="off" *ngIf="!isLoading">
+  <form class="form-inline" #addItem="ngForm" autocomplete="off" *ngIf="!isLoading" novalidate>
     <div class="form-group">
       <my-input-component [groceryItems] = "groceryItems" (inputValue)="myStringChanged($event)"> </my-input-component>
     </div>
