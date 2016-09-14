@@ -7,16 +7,18 @@ import {
   Response
 } from "@angular/http";
 import {
+  Observable
+} from "rxjs/Rx";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/map";
+
+import {
   Grocery
 } from "./list.model";
 import {
   Config
 } from "../config";
-import {
-  Observable
-} from "rxjs/Rx";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/map";
+
 
 @Injectable()
 export class ListService {
@@ -43,7 +45,7 @@ export class ListService {
       .catch(this.handleErrors);
   }
 
-  post(item: string): Observable < any > {
+  post(item: string): Observable < Grocery[] > {
     let headers = new Headers();
     this.token = this.checkToken();
     headers.append("Authorization", "Bearer " + this.token);
@@ -62,10 +64,9 @@ export class ListService {
 
   private extractData(res: Response) {
     let body = res.json();
-    console.log("body",body);
-    //return;
     return body || [];
   }
+
   handleErrors(error: Response) {
     console.log(JSON.stringify(error.json()));
     return Observable.throw(error);

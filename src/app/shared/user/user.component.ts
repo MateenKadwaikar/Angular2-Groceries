@@ -1,22 +1,20 @@
 import {
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 import {
   NgForm
 } from '@angular/forms';
+import {
+  Router
+} from "@angular/router";
+
 
 import {
   User
 } from './user.model';
-
 import {
   UserService
 } from "./user.service";
-
-import {
-  Router
-} from "@angular/router";
 
 
 @Component({
@@ -25,7 +23,7 @@ import {
   styleUrls: ['user.component.css'],
   providers: [UserService] 
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
   user: User;
   isLoggingIn: boolean = true;
@@ -41,7 +39,6 @@ export class UserComponent implements OnInit {
     this.user = new User("user@nativescript.org", "password");
   }
 
-  ngOnInit() {}
 
   onSubmit() {
     if (this.isLoggingIn) {

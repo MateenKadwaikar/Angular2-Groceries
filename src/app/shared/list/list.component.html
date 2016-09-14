@@ -1,20 +1,20 @@
 <div class="container">
-<logout-module></logout-module>
+  <logout-module></logout-module>
 </div>
 <div class="container">
   <form class="form-inline" #addItem="ngForm" autocomplete="off"  *ngIf="!isLoading">
     <div class="form-group">
-      <input type="text" class="form-control" id="grocery" name="groceryItem" #groceryItem="ngModel" [(ngModel)]="groceryItems" required>
-      <span [hidden]="groceryItem.valid || groceryItem.pristine || groceryItem.touched" class="alert alert-danger">
-        Grocery is required
-      </span>      
+      <input type="text" class="form-control" id="grocery" name="groceryItem"
+      #groceryItem="ngModel" [(ngModel)]="groceryItems" required>
+      <span [hidden]="groceryItem.valid || groceryItem.pristine || groceryItem.touched"
+      class="alert alert-danger">Grocery is required</span>
     </div>
-       <input type="submit" class="btn btn-primary" (click)="add()" value="Add Grocery">
+    <input type="submit" class="btn btn-primary" (click)="add()" value="Add Grocery">
   </form>
   <hr>
   <div class="loadingImage" *ngIf="isLoading">
-      <img src="../../images/loading.gif" alt="Loading">
-    </div>
+    <img src="../../images/loading.gif" alt="Loading">
+  </div>
   <table class="table" id="table" *ngIf="!isLoading">
     <thead>
       <tr>
@@ -28,7 +28,7 @@
         <td>{{i + 1}}</td>
         <td>{{item.Name }}</td>
         <td (click)="selectGrocery(item)">
-          <i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor : pointer;"></i></td>
+        <i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor : pointer;"></i></td>
       </tr>
     </tbody>
   </table>

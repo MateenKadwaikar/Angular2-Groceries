@@ -25,8 +25,7 @@
   <script src="{{.}}"></script>
   {{/each}}
   <script>
-    System.import('system-config.js').then(function(m) {
-      console.log(m);
+    System.import('system-config.js').then(function() {
       System.import('main');
     }).catch(console.error.bind(console));
   </script>

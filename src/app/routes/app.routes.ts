@@ -1,14 +1,13 @@
 import {
     provideRouter,
     RouterConfig,
-
 } from '@angular/router';
 import {
     UserComponent
-} from './shared/user/user.component';
+} from '../shared/user/user.component';
 import {
     ListComponent
-} from './shared/list/list.component';
+} from '../shared/list/list.component';
 import {
     AuthGuard
 } from './auth-guard';
@@ -26,4 +25,4 @@ export const appRoutes: RouterConfig = [
     path: '**',
     redirectTo: ''
 }];
-export const appRouterProviders = [provideRouter(appRoutes)]
+export const routing = [provideRouter(appRoutes)];

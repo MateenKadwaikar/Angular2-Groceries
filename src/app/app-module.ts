@@ -5,43 +5,50 @@ import {
     BrowserModule
 } from '@angular/platform-browser';
 import {
-    AppComponent
-} from './';
-import {
     HttpModule
 } from '@angular/http';
+import {
+    FormsModule
+} from '@angular/forms';
+
+
+import {
+    AppComponent
+} from './';
 import {
     ListService
 } from './shared/list/list.service';
 import {
-    User
-} from './shared/user/user.model';
-
-import {
     UserService
 } from './shared/user/user.service';
-
 import {
-    appRouterProviders,
-} from './app.routes';
-
-
-
+    routing,
+} from './routes/app.routes';
+import {
+    LogOutComponent
+} from './shared/user/user.logout';
 import {
     ListComponent
 } from './shared/list/list.component';
-
-
 import {
-    FormsModule
-} from '@angular/forms';
+    OrderByPipe
+} from './pipes/app.orderbypipe';
+import {
+    SearchByPipe
+} from './pipes/app.searchbypipe';
 import {
     AuthGuard
-} from './auth-guard';
+} from './routes/auth-guard';
+import {
+    UserComponent
+} from './shared/user/user.component';
+
+
 @NgModule({
-    declarations: [AppComponent], // Component and directives
-    imports: [BrowserModule, HttpModule, FormsModule], // , module dependencies
+    declarations: [AppComponent, LogOutComponent, OrderByPipe, SearchByPipe, UserComponent,
+                    ListComponent],    // directives, components, and pipes
+    imports: [BrowserModule, HttpModule, FormsModule], //module dependencies
     bootstrap: [AppComponent], // root Component
-    providers: [ListService, UserService, ListComponent, appRouterProviders, AuthGuard] // service
+    providers: [ListService, UserService,routing,AuthGuard] // service
 })
 export class AppModule {}

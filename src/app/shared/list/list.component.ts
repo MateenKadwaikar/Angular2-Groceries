@@ -1,20 +1,20 @@
 import {
-    Component,
-    OnInit
+    Component
 } from '@angular/core';
+
+
 import {
     Grocery
 } from './list.model';
-
 import {
     ListService
 } from './list.service';
 import {
     OrderByPipe
-} from '../../app.orderbypipe'
+} from '../../pipes/app.orderbypipe'
 import {
     SearchByPipe
-} from '../../app.searchbypipe'
+} from '../../pipes/app.searchbypipe'
 import {
     LogOutComponent
 } from "../user/user.logout"
@@ -23,10 +23,9 @@ import {
     moduleId: module.id,
     templateUrl: 'list.component.html',
     styleUrls: ['list.component.css'],
-    providers: [ListService],
-    pipes: [OrderByPipe, SearchByPipe],
-    directives: [LogOutComponent]
+    providers: [ListService]
 })
+
 export class ListComponent {
 
     private groceriesItemsList: Grocery[] = [];
@@ -37,7 +36,6 @@ export class ListComponent {
     constructor(private _listService: ListService) {
         this.loadGrocery()
     }
-
     loadGrocery() {
         this._listService.load()
             .subscribe(data => {
@@ -52,7 +50,6 @@ export class ListComponent {
         }
         this._listService.post(this.groceryItems)
             .subscribe(data => {
-                console.log(data);
                 this.loadGrocery();
                 this.groceryItems = '';
             });
@@ -62,4 +59,6 @@ export class ListComponent {
         console.log(item);
         this.groceryItems = item.Name;
      }
+
+
 }

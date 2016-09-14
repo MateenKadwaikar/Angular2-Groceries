@@ -3,9 +3,10 @@ import {
     PipeTransform,
     Injectable
 } from '@angular/core';
+
 import {
     Grocery
-} from '../app/shared/list/list.model';
+} from '../shared/list/list.model';
 
 
 @Pipe({
