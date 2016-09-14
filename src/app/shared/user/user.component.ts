@@ -59,8 +59,8 @@ export class UserComponent {
           if (sessionStorage.getItem("access_token") != null) {
             this._router.navigate(["/list"])
           } else { return this._router.navigate(['']) };
-        },
-        err => this.errorMessage = JSON.stringify(err.json().message).replace(/^"(.*)"$/, '$1')
+        }
+        //err => this.errorMessage = JSON.stringify(err.json().message).replace(/^"(.*)"$/, '$1')
       )
   }
 

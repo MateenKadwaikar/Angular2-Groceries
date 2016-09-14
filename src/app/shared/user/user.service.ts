@@ -57,12 +57,10 @@ export class UserService {
 
    private extractData(res:Response) {
         let body = res.json();
-            //return;
        return body || [];
     }
 
     handleErrors(error: Response) {
-   // console.log(JSON.stringify(error.json()));
     return Observable.throw(error);
   }
 

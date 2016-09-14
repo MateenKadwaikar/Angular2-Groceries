@@ -49,6 +49,6 @@ import {
                     ListComponent],    // directives, components, and pipes
     imports: [BrowserModule, HttpModule, FormsModule,routing], //module dependencies
     bootstrap: [AppComponent], // root Component
-    providers: [ListService, UserService,AuthGuard] // service
+    providers: [AuthGuard] // service
 })
 export class AppModule {}
