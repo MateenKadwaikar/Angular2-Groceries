@@ -1,0 +1,2 @@
+<input type="text" class="form-control" id="grocery" name="groceryItem" #groceryItem="ngModel" [(ngModel)]="groceryItems" (blur)="onBlurMethod()" required>
+<span [hidden]="groceryItem.valid || groceryItem.pristine || groceryItem.touched" class="alert alert-danger">Grocery is required</span>

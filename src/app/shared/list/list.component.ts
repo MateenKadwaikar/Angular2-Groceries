@@ -36,6 +36,8 @@ export class ListComponent {
     constructor(private _listService: ListService) {
         this.loadGrocery()
     }
+    
+    
     loadGrocery() {
         this._listService.load()
             .subscribe(data => {
@@ -43,6 +45,11 @@ export class ListComponent {
                 this.isLoading = false;
             })
     };
+
+    myStringChanged(e){
+        this.groceryItems = e;
+    }
+
     add() {
         if (this.groceryItems.trim() === '') {
             alert("Enter a grocery item");
@@ -59,6 +66,7 @@ export class ListComponent {
         console.log(item);
         this.groceryItems = item.Name;
      }
-
+    
+    
 
 }

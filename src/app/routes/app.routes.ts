@@ -2,6 +2,7 @@ import {
     Routes,
     RouterModule,
 } from '@angular/router';
+
 import {
     UserComponent
 } from '../shared/user/user.component';

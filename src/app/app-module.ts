@@ -31,6 +31,9 @@ import {
     ListComponent
 } from './shared/list/list.component';
 import {
+    InputComponent
+} from './shared/list/input.component';
+import {
     OrderByPipe
 } from './pipes/app.orderbypipe';
 import {
@@ -46,7 +49,7 @@ import {
 
 @NgModule({
     declarations: [AppComponent, LogOutComponent, OrderByPipe, SearchByPipe, UserComponent,
-                    ListComponent],    // directives, components, and pipes
+                    ListComponent, InputComponent    ],    // directives, components, and pipes
     imports: [BrowserModule, HttpModule, FormsModule,routing], //module dependencies
     bootstrap: [AppComponent], // root Component
     providers: [AuthGuard] // service

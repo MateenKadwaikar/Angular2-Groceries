@@ -27,3 +27,7 @@
 .ng-invalid {
   border-left: 5px solid #a94442; /* red */
 }
+
+table {
+    border-spacing: 5px;
+}

@@ -2,12 +2,9 @@
   <logout-module></logout-module>
 </div>
 <div class="container">
-  <form class="form-inline" #addItem="ngForm" autocomplete="off"  *ngIf="!isLoading">
+  <form class="form-inline" #addItem="ngForm" autocomplete="off" *ngIf="!isLoading">
     <div class="form-group">
-      <input type="text" class="form-control" id="grocery" name="groceryItem"
-      #groceryItem="ngModel" [(ngModel)]="groceryItems" required>
-      <span [hidden]="groceryItem.valid || groceryItem.pristine || groceryItem.touched"
-      class="alert alert-danger">Grocery is required</span>
+      <my-input-component [groceryItems] = "groceryItems" (inputValue)="myStringChanged($event)"> </my-input-component>
     </div>
     <input type="submit" class="btn btn-primary" (click)="add()" value="Add Grocery">
   </form>
@@ -16,6 +13,7 @@
     <img src="../../images/loading.gif" alt="Loading">
   </div>
   <table class="table" id="table" *ngIf="!isLoading">
+    <caption>Grocery Items</caption>
     <thead>
       <tr>
         <th>Id</th>
@@ -25,10 +23,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of (groceriesItemsList | orderBy  | searchBy: groceryItems) ; let i = index ">
-        <td>{{i + 1}}</td>
-        <td>{{item.Name }}</td>
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.Name }}</td>
         <td (click)="selectGrocery(item)">
-        <i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor : pointer;"></i></td>
+          <i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor : pointer;"></i></td>
       </tr>
     </tbody>
   </table>
