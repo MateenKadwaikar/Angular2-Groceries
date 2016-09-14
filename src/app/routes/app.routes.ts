@@ -1,6 +1,6 @@
 import {
-    provideRouter,
-    RouterConfig,
+    Routes,
+    RouterModule,
 } from '@angular/router';
 import {
     UserComponent
@@ -13,7 +13,7 @@ import {
 } from './auth-guard';
 
 
-export const appRoutes: RouterConfig = [
+export const appRoutes: Routes = [
 {
     path: '',
     component: UserComponent
@@ -25,4 +25,4 @@ export const appRoutes: RouterConfig = [
     path: '**',
     redirectTo: ''
 }];
-export const routing = [provideRouter(appRoutes)];
+export const routing = RouterModule.forRoot(appRoutes)

@@ -47,8 +47,8 @@ import {
 @NgModule({
     declarations: [AppComponent, LogOutComponent, OrderByPipe, SearchByPipe, UserComponent,
                     ListComponent],    // directives, components, and pipes
-    imports: [BrowserModule, HttpModule, FormsModule], //module dependencies
+    imports: [BrowserModule, HttpModule, FormsModule,routing], //module dependencies
     bootstrap: [AppComponent], // root Component
-    providers: [ListService, UserService,routing,AuthGuard] // service
+    providers: [ListService, UserService,AuthGuard] // service
 })
 export class AppModule {}
