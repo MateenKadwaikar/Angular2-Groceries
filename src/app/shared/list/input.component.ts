@@ -1,15 +1,15 @@
-import { Component, Output , EventEmitter,Input } from '@angular/core';
+import { Component, Output , EventEmitter, Input } from '@angular/core';
 
 @Component({
-	selector: 'my-input-component',
+	selector: 'app-my-input-component',
 	templateUrl: 'input.component.html'
 })
 export class InputComponent {
-	
+
 	@Input() groceryItems : string = '';
 	@Output() inputValue: EventEmitter<string> = new EventEmitter<string>();
 
-	onBlurMethod(){
+	onBlurMethod() {
 		this.inputValue.emit(this.groceryItems);
 	}
 }

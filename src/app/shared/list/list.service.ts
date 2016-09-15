@@ -5,30 +5,30 @@ import {
   Http,
   Headers,
   Response
-} from "@angular/http";
+} from '@angular/http';
 import {
   Observable
-} from "rxjs/Rx";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/map";
+} from 'rxjs/Rx';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 import {
   Grocery
-} from "./list.model";
+} from './list.model';
 import {
   Config
-} from "../config";
+} from '../config';
 
 
 @Injectable()
 export class ListService {
 
+  private token: string;
   constructor(private _http: Http) {}
-  private token : string;
 
   checkToken() {
     if (sessionStorage != null) {
-      return sessionStorage.getItem("access_token")
+      return sessionStorage.getItem('access_token');
     } else {
       return null;
     }
@@ -36,9 +36,9 @@ export class ListService {
   load(): Observable < any > {
     let headers = new Headers();
     this.token = this.checkToken();
-    headers.append("Authorization", "Bearer " + this.token);
+    headers.append('Authorization', 'Bearer ' + this.token);
 
-    return this._http.get(Config.apiUrl + "Groceries", {
+    return this._http.get(Config.apiUrl + 'Groceries', {
         headers: headers
       })
       .map(this.extractData)
@@ -48,11 +48,11 @@ export class ListService {
   post(item: string): Observable < Grocery[] > {
     let headers = new Headers();
     this.token = this.checkToken();
-    headers.append("Authorization", "Bearer " + this.token);
-    headers.append("Content-Type", "application/json");
+    headers.append('Authorization', 'Bearer ' + this.token);
+    headers.append('Content-Type', 'application/json');
 
     return this._http.post(
-        Config.apiUrl + "Groceries",
+        Config.apiUrl + 'Groceries',
         JSON.stringify({
           Name: item
         }), {
@@ -68,7 +68,6 @@ export class ListService {
   }
 
   handleErrors(error: Response) {
-    console.log(JSON.stringify(error.json()));
     return Observable.throw(error);
   }
 

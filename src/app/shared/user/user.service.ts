@@ -5,35 +5,34 @@ import {
     Http,
     Headers,
     Response
-} from "@angular/http";
+} from '@angular/http';
 import {
     Config
-} from "../config";
+} from '../config';
 import {
     Observable
-} from "rxjs/Rx";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/map";
+} from 'rxjs/Rx';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 import {
     User
-} from "./user.model";
+} from './user.model';
 
 
 @Injectable()
 export class UserService {
-    constructor(private _http: Http) {}
 
-    headers: Headers = new Headers({
+     private headers: Headers = new Headers({
         'Content-Type': 'application/json',
         Accept: 'application/json'
     });
 
-
+    constructor(private _http: Http) {}
     ///
     register(user: User) {
         return this._http.post(
-                Config.apiUrl + "Users",
+                Config.apiUrl + 'Users',
 
                 JSON.stringify({
                     Username: user.email,
@@ -50,20 +49,20 @@ export class UserService {
     ///Login a user.
     login(user: User) {
         let headers = new Headers();
-        headers.append("Content-Type", "application/json");
+        headers.append('Content-Type', 'application/json');
 
         return this._http.post(
-                Config.apiUrl + "oauth/token",
+                Config.apiUrl + 'oauth/token',
 
                 JSON.stringify({
                     username: user.email,
                     password: user.password,
-                    grant_type: "password"
+                    grant_type: 'password'
                 }), {
                     headers: headers
                 }
 
-            ).map(this.extractData)
+            ).map(this.extractData);
             // .do(data => {
             //  Config.token = data.Result.access_token;
             // })

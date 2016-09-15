@@ -9,15 +9,7 @@ import {
 import {
     ListService
 } from './list.service';
-import {
-    OrderByPipe
-} from '../../pipes/app.orderbypipe'
-import {
-    SearchByPipe
-} from '../../pipes/app.searchbypipe'
-import {
-    LogOutComponent
-} from "../user/user.logout"
+
 
 @Component({
     templateUrl: 'list.component.html',
@@ -33,25 +25,25 @@ export class ListComponent {
     private groceryItems: string = '';
 
     constructor(private _listService: ListService) {
-        this.loadGrocery()
+        this.loadGrocery();
     }
-    
-    
+
+
     loadGrocery() {
         this._listService.load()
             .subscribe(data => {
                 this.groceriesItemsList = data.Result;
                 this.isLoading = false;
-            })
+            });
     };
 
-    myStringChanged(e){
+    myStringChanged(e) {
         this.groceryItems = e;
     }
 
     add() {
         if (this.groceryItems.trim() === '') {
-            alert("Enter a grocery item");
+            alert('Enter a grocery item');
             return;
         }
         this._listService.post(this.groceryItems)
@@ -65,7 +57,7 @@ export class ListComponent {
         console.log(item);
         this.groceryItems = item.Name;
      }
-    
-    
+
+
 
 }

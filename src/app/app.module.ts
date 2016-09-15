@@ -16,12 +16,6 @@ import {
     AppComponent
 } from './';
 import {
-    ListService
-} from './shared/list/list.service';
-import {
-    UserService
-} from './shared/user/user.service';
-import {
     routing,
 } from './routes/app.routes';
 import {
@@ -50,7 +44,7 @@ import {
 @NgModule({
     declarations: [AppComponent, LogOutComponent, OrderByPipe, SearchByPipe, UserComponent,
                     ListComponent, InputComponent    ],    // directives, components, and pipes
-    imports: [BrowserModule, HttpModule, FormsModule,routing], //module dependencies
+    imports: [BrowserModule, HttpModule, FormsModule, routing], // module dependencies
     bootstrap: [AppComponent], // root Component
     providers: [AuthGuard] // service
 })
