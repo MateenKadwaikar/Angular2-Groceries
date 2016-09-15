@@ -1,0 +1,6 @@
+{
+  "name": "Groceries",
+  "tagline": "Groceries With Angular 2",
+  "body": "# Groceries with aNgular 2\r\n\r\nDEMO \r\n\r\nhttps://groceries-7ba8e.firebaseapp.com/\r\n\r\nThis project is build on Angular CLI ( https://github.com/angular/angular-cli ) . \r\n\r\nThis project will give you basic idea about how to use Angular Final , Angular PIPES , Routers, Output Event Syntax and AuthGuard for protecting your url.\r\n\r\nIt also use SessionStorage to store and retrieve data.\r\n\r\nThe default user name and password is\r\n\r\nUserName : - user@nativescript.org\r\nPassword :- password\r\n\r\nPrerequisites\r\n\r\nNode.js and npm are essential to Angular 2 development.\r\n\r\nInstall angular-cli globally in your system by 'npm install -g angular-cli' so that you can use angular-cli syntax.\r\n\r\nGet it now if it's not already installed on your machine.\r\n\r\nVerify that you are running at least node v5.x.x and npm 3.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors.\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
