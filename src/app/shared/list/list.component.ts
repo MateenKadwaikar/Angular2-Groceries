@@ -55,7 +55,7 @@ export class ListComponent {
 
     selectGrocery(item: Grocery) {
         console.log(item);
-        this.groceryItems = item.Name;
+        // this.groceryItems = item.Name;
      }
 
 

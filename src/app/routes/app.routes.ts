@@ -16,7 +16,7 @@ import {
 
 export const appRoutes: Routes = [
 {
-    path: '',
+    path: 'login',
     component: UserComponent
 }, {
     path: 'list',
@@ -24,6 +24,6 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard]
 }, {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'login'
 }];
 export const routing = RouterModule.forRoot(appRoutes);

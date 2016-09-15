@@ -14,7 +14,7 @@ export class LogOutComponent {
 
     Logout() {
         sessionStorage.removeItem('access_token');
-        this._router.navigate(['']);
+        this._router.navigate(['/login']);
     }
 
 }
