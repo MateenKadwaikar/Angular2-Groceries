@@ -20,7 +20,6 @@ import {
 } from "../user/user.logout"
 
 @Component({
-    moduleId: module.id,
     templateUrl: 'list.component.html',
     styleUrls: ['list.component.css'],
     providers: [ListService]

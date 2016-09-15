@@ -5,7 +5,6 @@ import {
     Router
 } from "@angular/router";
 @Component({
-    moduleId: module.id,
     selector: 'logout-module',
     templateUrl: 'user-logout.component.html'
 })

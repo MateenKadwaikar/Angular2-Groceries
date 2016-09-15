@@ -1,7 +1,6 @@
 import { Component, Output , EventEmitter,Input } from '@angular/core';
 
 @Component({
-	moduleId: module.id,
 	selector: 'my-input-component',
 	templateUrl: 'input.component.html'
 })
