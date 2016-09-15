@@ -1,0 +1,52 @@
+<div class="container">
+  <div id="loginModal">
+    <md-card class="demo-card demo-basic">
+
+      <md-toolbar color="primary"> {{isLoggingIn ? 'Login' : 'Register'}}
+        <span class="demo-fill-remaining"></span>
+      </md-toolbar>
+      <md-card-content>
+        <span md-prefix>&nbsp;</span>
+        <form autocomplete="off" novalidate>
+          <md-input class="demo-full-width" style="width: 100%" placeholder="Email Address" [(ngModel)]="user.email" name="email" #email="ngModel" dividerColor="{{email.invalid ? 'warn' : 'primary'  }}" required>
+          </md-input>
+<!--
+          <span md-prefix>&nbsp;</span>
+          <span md-prefix>&nbsp;</span>
+          
+          <span [hidden]="email.valid || email.pristine  || email.touched" class="alert alert-danger">
+            Email is required
+          </span>-->
+
+          <span md-prefix>&nbsp;</span>
+          <span md-prefix>&nbsp;</span>
+
+          <md-input class="demo-full-width" type="password" style="width: 100%" placeholder="Password" [(ngModel)]="user.password" name="password" #password="ngModel" dividerColor="{{password.invalid ? 'warn' : 'primary'  }}" required>
+          </md-input>
+
+          <!--<span md-prefix>&nbsp;</span>
+          <span md-prefix>&nbsp;</span>
+          
+          <span [hidden]="password.valid || password.pristine  || password.touched" class="alert alert-danger">
+            Password is required
+          </span>-->
+
+          <span md-prefix>&nbsp;</span>
+          
+          <md-card-actions align="end">
+            <button md-raised-button type="submit" color="primary" id="submit-button" [value]="isLoggingIn ? 'Sign In' : 'Sign Up'" (click)="onSubmit()">{{isLoggingIn ? 'Sign In' : 'Sign Up'}} </button>&nbsp;
+            <button md-raised-button type="submit" class="btn btn-default " id="submit-button" [value]="isLoggingIn ? 'Sign Up' : 'Back to Login'" (click)="toggleDisplay()">{{isLoggingIn ? 'Sign Up' : 'Back to Login'}} </button>
+          </md-card-actions>
+
+        </form>
+
+        <span *ngIf="errorMessage || !isError" class="alert alert-danger">
+            {{errorMessage}}
+          </span>
+        <span *ngIf="signUpsuccess" class="alert alert-danger">
+            {{signUpSuccessful}}
+          </span>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

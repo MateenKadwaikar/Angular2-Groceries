@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  OnInit
 } from '@angular/core';
 import {
   Router
@@ -11,7 +12,7 @@ import {
 } from './user.model';
 import {
   UserService
-} from './user.service';
+} from '../services/user.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ import {
   styleUrls: ['user.component.css'],
   providers: [UserService]
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   user: User;
   isLoggingIn: boolean = true;
@@ -31,7 +32,9 @@ export class UserComponent {
   latitude: number;
   longitude: number;
 
-  constructor(private _userService: UserService, private _router : Router) {
+  ngOnInit() {}
+
+  constructor(private _userService: UserService, private _router: Router) {
     this.user = new User('user@nativescript.org', 'password');
   }
 
@@ -54,7 +57,7 @@ export class UserComponent {
           this.isError = true;
           if (sessionStorage.getItem('access_token') != null) {
             this._router.navigate(['/list']);
-          } else { return this._router.navigate(['']); };
+          } else { return this._router.navigate(['/login']); };
         },
         err => this.errorMessage = JSON.stringify(err.json().message).replace(/^"(.*)"$/, '$1')
       );
@@ -73,6 +76,7 @@ export class UserComponent {
   }
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+    this.isError = true;
   }
 
 }

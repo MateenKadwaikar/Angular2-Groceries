@@ -1,19 +1,22 @@
 <div class="container">
-  <app-logout-module></app-logout-module>
-</div>
-<div class="container">
+
+  <div>
+    <app-logout-module></app-logout-module>
+  </div>
+  <div>
   <form class="form-inline" #addItem="ngForm" autocomplete="off" *ngIf="!isLoading" novalidate>
     <div class="form-group">
-      <app-my-input-component [groceryItems] = "groceryItems" (inputValue)="myStringChanged($event)"> </app-my-input-component>
+      <app-my-input-component [groceryItems]="groceryItems" (inputValue)="myStringChanged($event)"> </app-my-input-component>
     </div>
-    <input type="submit" class="btn btn-primary" (click)="add()" value="Add Grocery">
+  
+    <button md-raised-button color="primary" type="submit" (click)="add()">Add Grocery</button>
   </form>
+  </div>
   <hr>
   <div class="loadingImage" *ngIf="isLoading">
     <img src="./assets/loading.gif" alt="Loading">
   </div>
   <table class="table" id="table" *ngIf="!isLoading">
-    <caption>Grocery Items</caption>
     <thead>
       <tr>
         <th>Id</th>
@@ -30,4 +33,5 @@
       </tr>
     </tbody>
   </table>
+  
 </div>

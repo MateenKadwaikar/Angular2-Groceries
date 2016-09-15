@@ -5,10 +5,10 @@ import {
 
 import {
     UserComponent
-} from '../shared/user/user.component';
+} from '../user/user.component';
 import {
     ListComponent
-} from '../shared/list/list.component';
+} from '../list/list.component';
 import {
     AuthGuard
 } from './auth-guard';

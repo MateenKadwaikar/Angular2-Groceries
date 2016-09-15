@@ -4,6 +4,7 @@ import {
 import {
     Router
 } from '@angular/router';
+
 @Component({
     selector: 'app-logout-module',
     templateUrl: 'user-logout.component.html'
@@ -14,7 +15,7 @@ export class LogOutComponent {
 
     Logout() {
         sessionStorage.removeItem('access_token');
-        this._router.navigate(['/login']);
+        this._router.navigate(['']);
     }
 
 }

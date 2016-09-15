@@ -14,10 +14,10 @@ import 'rxjs/add/operator/map';
 
 import {
   Grocery
-} from './list.model';
+} from '../list/list.model';
 import {
   Config
-} from '../config';
+} from '../shared/config';
 
 
 @Injectable()

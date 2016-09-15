@@ -8,7 +8,7 @@ import {
 } from './list.model';
 import {
     ListService
-} from './list.service';
+} from '../services/list.service';
 
 
 @Component({

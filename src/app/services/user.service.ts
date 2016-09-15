@@ -8,7 +8,7 @@ import {
 } from '@angular/http';
 import {
     Config
-} from '../config';
+} from '../shared/config';
 import {
     Observable
 } from 'rxjs/Rx';
@@ -17,7 +17,7 @@ import 'rxjs/add/operator/map';
 
 import {
     User
-} from './user.model';
+} from '../user/user.model';
 
 
 @Injectable()
