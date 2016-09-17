@@ -25,6 +25,10 @@ import {
 import {
     MdToolbarModule
 } from '@angular2-material/toolbar';
+import {
+    MdProgressCircleModule
+} from '@angular2-material/progress-circle';
+
 
 import {
     AppComponent
@@ -58,7 +62,8 @@ import {
 @NgModule({
     declarations: [AppComponent, LogOutComponent, OrderByPipe, SearchByPipe, UserComponent,
         ListComponent, InputComponent], // directives, components, and pipes
-    imports: [MdButtonModule, MdListModule,MdCardModule,MdToolbarModule, BrowserModule, HttpModule, FormsModule, routing, MdInputModule], // module dependencies
+    imports: [MdButtonModule,MdProgressCircleModule, MdListModule,MdCardModule,MdToolbarModule, BrowserModule, 
+            HttpModule, FormsModule, routing, MdInputModule], // module dependencies
     bootstrap: [AppComponent], // root Component
     providers: [AuthGuard] // service
 })

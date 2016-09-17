@@ -6,8 +6,8 @@ import { Component, Output , EventEmitter, Input } from '@angular/core';
 })
 export class InputComponent {
 
-	@Input() groceryItems : string = '';
-	@Output() inputValue: EventEmitter<string> = new EventEmitter<string>();
+	@Input() groceryItems = '';
+	@Output() inputValue = new EventEmitter<string>();
 
 	onBlurMethod() {
 		this.inputValue.emit(this.groceryItems);

@@ -32,11 +32,12 @@ export class UserComponent implements OnInit {
   latitude: number;
   longitude: number;
 
-  ngOnInit() {}
-
-  constructor(private _userService: UserService, private _router: Router) {
+  ngOnInit() {
     this.user = new User('user@nativescript.org', 'password');
+
   }
+
+  constructor(private _userService: UserService, private _router: Router) {}
 
 
   onSubmit() {
@@ -50,14 +51,15 @@ export class UserComponent implements OnInit {
 
   login() {
 
-    this._userService.login(this.user)
+    this._userService.login(this.user )
       .subscribe(
-        data => {
-          sessionStorage.setItem('access_token', data.Result.access_token);
+        (data: any)  => {
           this.isError = true;
           if (sessionStorage.getItem('access_token') != null) {
             this._router.navigate(['/list']);
-          } else { return this._router.navigate(['/login']); };
+          } else {
+            return this._router.navigate(['/login']);
+          };
         },
         err => this.errorMessage = JSON.stringify(err.json().message).replace(/^"(.*)"$/, '$1')
       );
@@ -76,7 +78,6 @@ export class UserComponent implements OnInit {
   }
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
-    this.isError = true;
   }
 
 }

@@ -14,7 +14,7 @@
   </div>
   <hr>
   <div class="loadingImage" *ngIf="isLoading">
-    <img src="./assets/loading.gif" alt="Loading">
+    <md-progress-circle mode="indeterminate" color="warn"></md-progress-circle>
   </div>
   <table class="table" id="table" *ngIf="!isLoading">
     <thead>

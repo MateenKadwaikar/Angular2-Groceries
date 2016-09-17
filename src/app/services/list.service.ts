@@ -24,6 +24,8 @@ import {
 export class ListService {
 
   private token: string;
+  private header: Headers;
+
   constructor(private _http: Http) {}
 
   checkToken() {
@@ -33,37 +35,40 @@ export class ListService {
       return null;
     }
   }
-  load(): Observable < any > {
+
+  headers(): Headers {
     let headers = new Headers();
     this.token = this.checkToken();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
     headers.append('Authorization', 'Bearer ' + this.token);
+    return headers;
+  }
 
+  load(): Observable < any > {
+    this.header = this.headers();
     return this._http.get(Config.apiUrl + 'Groceries', {
-        headers: headers
+        headers: this.header
       })
       .map(this.extractData)
       .catch(this.handleErrors);
   }
 
-  post(item: string): Observable < Grocery[] > {
-    let headers = new Headers();
-    this.token = this.checkToken();
-    headers.append('Authorization', 'Bearer ' + this.token);
-    headers.append('Content-Type', 'application/json');
-
+  post(item: string): Observable < any > {
+    this.header = this.headers();
     return this._http.post(
         Config.apiUrl + 'Groceries',
         JSON.stringify({
           Name: item
         }), {
-          headers: headers
+          headers: this.header
         }
       ).map(this.extractData)
       .catch(this.handleErrors);
   }
 
   private extractData(res: Response) {
-    let body = res.json();
+    let body = < Grocery[] > res.json().Result;
     return body || [];
   }
 

@@ -23,14 +23,18 @@ import {
 @Injectable()
 export class UserService {
 
-     private headers: Headers = new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-    });
+    private header: Headers;
 
+    headers(): Headers {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        return headers;
+    }
     constructor(private _http: Http) {}
-    ///
+        ///
     register(user: User) {
+        this.header = this.headers();
         return this._http.post(
                 Config.apiUrl + 'Users',
 
@@ -39,7 +43,7 @@ export class UserService {
                     Email: user.email,
                     Password: user.password
                 }), {
-                    headers: this.headers
+                    headers: this.header
                 }
             ).map(this.extractData)
             .catch(this.handleErrors);
@@ -48,9 +52,7 @@ export class UserService {
 
     ///Login a user.
     login(user: User) {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
+        this.header = this.headers();
         return this._http.post(
                 Config.apiUrl + 'oauth/token',
 
@@ -59,17 +61,17 @@ export class UserService {
                     password: user.password,
                     grant_type: 'password'
                 }), {
-                    headers: headers
+                    headers: this.header
                 }
 
-            ).map(this.extractData);
-            // .do(data => {
-            //  Config.token = data.Result.access_token;
-            // })
+            ).map(this.extractData)
+            .do(data => {
+                sessionStorage.setItem('access_token', data.access_token);
+            })
     }
 
     private extractData(res: Response) {
-        let body = res.json();
+        let body = res.json().Result;
         return body || [];
     }
 

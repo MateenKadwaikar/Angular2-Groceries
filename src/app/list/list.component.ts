@@ -1,5 +1,5 @@
 import {
-    Component
+    Component,OnInit
 } from '@angular/core';
 
 
@@ -17,7 +17,7 @@ import {
     providers: [ListService]
 })
 
-export class ListComponent {
+export class ListComponent implements OnInit {
 
     private groceriesItemsList: Grocery[] = [];
 
@@ -28,11 +28,12 @@ export class ListComponent {
         this.loadGrocery();
     }
 
+    ngOnInit() {}
 
     loadGrocery() {
         this._listService.load()
             .subscribe(data => {
-                this.groceriesItemsList = data.Result;
+                this.groceriesItemsList = data;
                 this.isLoading = false;
             });
     };
@@ -55,7 +56,6 @@ export class ListComponent {
 
     selectGrocery(item: Grocery) {
         console.log(item);
-        // this.groceryItems = item.Name;
      }
 
 
