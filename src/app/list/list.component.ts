@@ -24,11 +24,11 @@ export class ListComponent implements OnInit {
     private isLoading: boolean = true;
     private groceryItems: string = '';
 
-    constructor(private _listService: ListService) {
+    constructor(private _listService: ListService) {}
+
+    ngOnInit() {
         this.loadGrocery();
     }
-
-    ngOnInit() {}
 
     loadGrocery() {
         this._listService.load()
